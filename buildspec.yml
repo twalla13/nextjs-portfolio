@@ -5,14 +5,21 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo Installing source NPM dependencies...
-      - npm install -D typescript @types/react @types/node
+      - echo "Installing source NPM dependencies..."
+      - npm install
+
   build:
     commands:
+      - echo "Building the Next.js application..."
       - npm run build
+      - npm run export # if you keep using static HTML export, ensure 'output: "static"' is configured in next.config.js
 
 artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: build
+  base-directory: out # Changed from 'build' to 'out'
+
+cache:
+  paths:
+    - "node_modules/**/*"
