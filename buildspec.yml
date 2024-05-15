@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+
+  pre_build:
+    commands:
+      - echo Starting the pre-build phase...
+      - echo Next.js build started on $(date)
+
+  build:
+    commands:
+      - npm run build
+      - npm run export # Ensure this script is in your package.json and configured properly in next.config.js for static export
+
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: out # This should point to the directory where Next.js exports the static files
+
+cache:
+  paths:
+    - "node_modules/**/*"
