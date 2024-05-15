@@ -16,7 +16,6 @@ phases:
   build:
     commands:
       - npm run build
-      - npm run export # Ensure this script is in your package.json and configured properly in next.config.js for static export
 
 artifacts:
   files:
