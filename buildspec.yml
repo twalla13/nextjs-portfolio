@@ -21,7 +21,7 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: out # This should point to the directory where Next.js exports the static files
+  base-directory: build
 
 cache:
   paths:
