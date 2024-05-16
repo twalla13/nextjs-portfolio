@@ -12,7 +12,6 @@ phases:
     commands:
       - echo "Building the Next.js application..."
       - npm run build
-      - npm run export # if you keep using static HTML export, ensure 'output: "static"' is configured in next.config.js
 
 artifacts:
   files:
