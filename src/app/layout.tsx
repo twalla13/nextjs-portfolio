@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Handlee} from "next/font/google";
+import clsx from "clsx";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+ 
+const handlee= Handlee({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-handlee',
+  weight: "400"
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={clsx(inter.variable, handlee.variable)}>
+      <body >{children}</body>
     </html>
   );
 }
