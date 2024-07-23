@@ -16,14 +16,14 @@ export const repositoryName =
 // TODO: Update the routes array to match your project's route structure.
 const routes: prismic.ClientConfig["routes"] = [
   // Examples:
-  // {
-  // 	type: "homepage",
-  // 	path: "/",
-  // },
-  // {
-  // 	type: "page",
-  // 	path: "/:uid",
-  // },
+  {
+  	type: "homepage",
+  	path: "/",
+  },
+  {
+  	type: "page",
+  	path: "/:uid",
+  },
 ];
 
 /**
@@ -35,6 +35,7 @@ const routes: prismic.ClientConfig["routes"] = [
 export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
+    //deals with caching features
     fetchOptions:
       process.env.NODE_ENV === "production"
         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
