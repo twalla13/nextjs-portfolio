@@ -17,8 +17,12 @@ const handlee= Handlee({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tonidocs.com'),
   title: "ToniDocs",
   description: "Discover tonidocs by Toniann Wallace: a showcase of innovative software engineering projects and insights.",
+   openGraph: {
+    images: '/images/og-mage.png',
+  },
 };
 
 export default function RootLayout({
