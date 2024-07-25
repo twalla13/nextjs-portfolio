@@ -15,10 +15,10 @@ phases:
 
 artifacts:
   files:
-    - "**/*"
+    - '**/*'
   discard-paths: no
   base-directory: out # Changed from 'build' to 'out'
 
 cache:
   paths:
-    - "node_modules/**/*"
+    - 'node_modules/**/*'

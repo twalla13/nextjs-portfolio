@@ -15,6 +15,6 @@ const nextConfig = {
   // images: {
   //   domains: ['tonidocs.com'], // Customize to your needs
   // }
-};
+}
 
-export default nextConfig;
+export default nextConfig
