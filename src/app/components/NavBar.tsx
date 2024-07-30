@@ -10,8 +10,8 @@ const NavBar = () => {
           <div className="text-black text-2xl font-display">Toniann</div>
         </div>
         <div className="flex space-x-4">
-          <div className="text-black text-xl font-normal"><Link href="/HireMe">Hire Me</Link></div>
-          <div className="text-black text-xl font-normal"><Link href="/Portfolio">Portfolio</Link></div>
+          <div className="text-black text-xl font-normal"><Link href= "#contact">Hire Me</Link></div>
+          <div className="text-black text-xl font-normal"><Link href="#portfolio">Portfolio</Link></div>
         </div>
       </div>
     </nav>

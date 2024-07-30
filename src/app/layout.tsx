@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Handlee} from "next/font/google";
 import clsx from "clsx";
 import "./globals.css";
-import Header from "./components/Header";
 import NavBar from "./components/NavBar";
+
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,9 +36,10 @@ export default function RootLayout({
     <html lang="en" className={clsx(inter.variable, handlee.variable)}>
      
      <body>
-      <Header />
+      
       <NavBar />
       {children}
+     
      </body>
     </html>
   );
