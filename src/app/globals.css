@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .bg-college-ruled {
+        background-color: white;
+        background-image:
+            linear-gradient(to bottom, rgba(173, 216, 230, 0.8) 1px, transparent 1px),
+            /* light blue horizontal lines */
+            linear-gradient(to right, rgba(255, 182, 193, 0.8) 2px, transparent 2px);
+        /* light red vertical line */
+        background-size: 100% 24px, 100% 100%;
+        /* adjust the sizes for the lines */
+        background-position: 0 12px, 32px 0;
+        /* position the horizontal and vertical lines */
+    }
+}

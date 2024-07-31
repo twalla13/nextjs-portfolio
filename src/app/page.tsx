@@ -5,11 +5,14 @@ import HomeSection from './components/HomeSection'
 
 export default function Home() {
   return (
-    <main>
-      <HomeSection />
-      <PortfolioSection />
-      <HireMeSection />
-    </main>
+    <div className="min-h-screen bg-college-ruled">
+       <main className="p-4 mx-8"> {/* Use mx-8 to align content with the vertical line */}
+        <HomeSection />
+        <PortfolioSection />
+        <HireMeSection />
+        </main>
+
+    </div>
     
   )
 }
