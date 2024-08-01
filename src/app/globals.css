@@ -15,6 +15,23 @@
         background-position: 0 12px, 32px 0;
         /* position the horizontal and vertical lines */
     }
+    .custom-text {
+        color: #0C0C0C;
+        text-align: center;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: #0C0C0C;
+        font-family: 'Handlee', sans-serif;
+        /* Ensure the font is imported in your project */
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        background-color: #FFC9F0;
+        padding: 0.05em 0.1em;
+        /* Add padding to make the highlight more visually appealing */
+        display: inline-block;
+        /* Ensure the background color applies only to the text */
+    }
     
 @media (min-width: 1024px) {
 
