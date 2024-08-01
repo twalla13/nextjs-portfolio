@@ -17,19 +17,19 @@
     }
     .custom-text {
         color: #0C0C0C;
-        text-align: center;
+        text-align: left;
         -webkit-text-stroke-width: 0.5px;
         -webkit-text-stroke-color: #0C0C0C;
-        font-family: 'Handlee', sans-serif;
+        font-family: var(--font-handlee);
         /* Ensure the font is imported in your project */
-        font-size: 32px;
+        font-size: 26px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 600;
         line-height: normal;
         background-color: #FFC9F0;
-        padding: 0.05em 0.1em;
+        padding: 0.05em 0.05em;
         /* Add padding to make the highlight more visually appealing */
-        display: inline-block;
+        display:flexbox;
         /* Ensure the background color applies only to the text */
     }
     
