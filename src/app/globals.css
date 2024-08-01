@@ -15,4 +15,13 @@
         background-position: 0 12px, 32px 0;
         /* position the horizontal and vertical lines */
     }
+    
+@media (min-width: 1024px) {
+
+    /* For larger screens */
+    .bg-college-ruled {
+        background-position: 0 18px, 60px 0;
+        /* Move the red line more inward */
+    }
+}
 }
