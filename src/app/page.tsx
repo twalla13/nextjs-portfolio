@@ -7,7 +7,7 @@ import AboutMeSection from './components/AboutMeSection'
 export default function Home() {
   return (
     <div className="min-h-screen bg-college-ruled">
-       <main className="container mx-auto px-4 lg:px-2" > {/* Use mx-8 to align content with the vertical line */}
+       <main className="container mx-auto px-4 lg:px-0" > {/* Use mx-8 to align content with the vertical line */}
         <HomeSection />
         <AboutMeSection />
         <PortfolioSection />
