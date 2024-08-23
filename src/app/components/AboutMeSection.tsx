@@ -24,7 +24,7 @@ const AboutMeSection = () => (
               <img
                 src="/imgs/cloud-removebg.png"
                 alt="cloud"
-                className="w-[128px] h-[128px] absolute top-[100px] left-[-20px] md:top-[250px] md:left-[180px]"
+                className="w-[128px] h-[128px] absolute top-[100px] left-[-20px] md:top-[250px] md:left-[100px] lg:top-[250px] lg:left-[180px]"
               />
             </div>
           </div>
@@ -41,7 +41,7 @@ const AboutMeSection = () => (
               <img
                 src="/imgs/computer-removebg.png"
                 alt="computer"
-                className="w-[128px] h-[128px] absolute top-[150px] left-[50px] md:top-[250px] md:left-[180px]"
+                className="w-[128px] h-[128px] absolute top-[150px] left-[50px] md:top-[250px] md:left-[100px] lg:top-[250px] lg:left-[180px]"
               />
             </div>
           </div>
@@ -58,7 +58,7 @@ const AboutMeSection = () => (
               <img
                 src="/imgs/html-removebg.png"
                 alt="html doodle"
-                className="w-[128px] h-[128px] absolute top-[140px] left-[50px] md:top-[250px] md:left-[180px]"
+                className="w-[128px] h-[128px] absolute top-[140px] left-[50px] md:top-[250px] md:left-[100px] lg:top-[250px] lg:left-[180px]"
               />
             </div>
           </div>
