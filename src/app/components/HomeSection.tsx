@@ -7,7 +7,13 @@ const HomeSection = () => (
         <img
           src="/imgs/homepagegirl.png"
           alt="Homepage Girl"
-          className="w-40 h-40 md:w-60 md:h-60 lg:w-64 lg:h-80 xl:w-80 xl:h-80 rounded-full"
+          className="w-40 h-40 md:w-[256px] md:h-[256px] lg:w-[512px] lg:h-[512px] xl:w-[1024px] xl:h-[1024px]" // Dynamic resizing
+          style={{ 
+            maxWidth: '100%', 
+            height: 'auto',
+            maskImage: 'radial-gradient(circle, white 60%, transparent 100%)', // Added fade effect
+            WebkitMaskImage: 'radial-gradient(circle, white 60%, transparent 100%)' // Webkit for cross-browser compatibility
+          }}
         />
       </div>
       <div className="text-center mt-6 p-4 lg:text-left lg:p-2">
