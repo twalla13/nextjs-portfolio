@@ -21,6 +21,11 @@ const AboutMeSection = () => (
             }}>
               <h3 className="custom-text absolute top-[50px] right-[-20px] md:top-[70px] md:right-[-40px]" style={{ backgroundColor: '#9DDCFF', transform: 'rotate(4deg)' }}>Cloud Services</h3>
               <p className="font-body  text-xl lg:text-2xl text-center" style={{transform: 'rotate(4deg)'}}>Utilize AWS and Azure for scalable, efficient cloud solutions.</p>
+              <img
+                src="/imgs/cloud-removebg.png"
+                alt="cloud"
+                className="w-[128px] h-[128px] absolute top-[100px] left-[-20px] md:top-[250px] md:left-[180px]"
+              />
             </div>
           </div>
           {/* Card 2 */}
@@ -33,6 +38,11 @@ const AboutMeSection = () => (
             }}>
               <h3 className="custom-text absolute top-[-20px]" style={{ transform: 'rotate(-4deg)' }}>Object Orientated Programming</h3>
               <p className="font-body text-xl lg:text-2xl  text-center" style={{transform: 'rotate(-4deg)' }}>Develop scalable, maintainable software using Java, C++, and Python.</p>
+              <img
+                src="/imgs/computer-removebg.png"
+                alt="computer"
+                className="w-[128px] h-[128px] absolute top-[150px] left-[50px] md:top-[250px] md:left-[180px]"
+              />
             </div>
           </div>
           {/* Card 3 */}
@@ -43,8 +53,13 @@ const AboutMeSection = () => (
               border: '5px solid #F384D4',
               boxShadow: '5px 5px 20px 0px rgba(255, 230, 140, 0.13)'
             }}>
-              <h3 className="custom-text absolute bottom-[170px] right-[-20px] md:bottom-[320px] md:right-[-40px]" style={{ backgroundColor: '#FFE68C', transform: 'rotate(4deg)' }}>Web Development</h3>
+              <h3 className="custom-text absolute bottom-[170px] right-[-20px] md:bottom-[270px] md:right-[-40px]" style={{ backgroundColor: '#FFE68C', transform: 'rotate(4deg)' }}>Web Development</h3>
               <p className="font-body text-xl lg:text-2xl text-center" style={{transform: 'rotate(4deg)' }}>Create responsive, dynamic web applications with React, NextJS, Node.js, and TypeScript.</p>
+              <img
+                src="/imgs/html-removebg.png"
+                alt="html doodle"
+                className="w-[128px] h-[128px] absolute top-[140px] left-[50px] md:top-[250px] md:left-[180px]"
+              />
             </div>
           </div>
         </div>
