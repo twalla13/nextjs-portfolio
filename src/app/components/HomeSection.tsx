@@ -15,12 +15,12 @@ const HomeSection = () => (
           WebkitMaskImage: 'radial-gradient(circle, white 60%, transparent 100%)'
         }}
       />
-     <div className="absolute top-12 left-1/3 transform -translate-x-1/2 -translate-y-1/2 flex items-center">
+     <div className="absolute top-10 left-1 md:left-16 lg:top-12 lg:left-1/3 transform -translate-x-1/2 -translate-y-1/2 flex items-center">
         <span className="custom-text text-s md:text-2xl mr-5">toni</span>
           <img
             src="/imgs/arrow.svg"
             alt="Arrow"
-            className="w-8 h-8 lg:w-[36px] lg:h-[68px] transform scale-x-[-1] rotate-[-70deg]"
+            className=" sm:w-6 sm:h-6 md:w-12 md:h-12 lg:w-[36px] lg:h-[68px] transform scale-x-[-1] rotate-[-70deg]"
           />
     </div>
     </div>
