@@ -116,8 +116,8 @@ export default function AboutPage() {
           <span className="custom-text text-2xl">Education</span>
           <div className="mt-8 space-y-4">
             {[
-              { degree: 'B.S. Software Engineering', where: 'University', year: 'Add year' },
-              { degree: 'B.S. Mathematics',          where: 'University', year: 'Add year' },
+              { degree: 'B.S. Software Engineering', where: 'Arizonia State University', year: '2024' },
+              { degree: 'B.S. Mathematics',          where: 'SUNY Old Westbury', year: '2020' },
             ].map(({ degree, where, year }) => (
               <div
                 key={degree}
