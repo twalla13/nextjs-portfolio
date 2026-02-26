@@ -19,6 +19,12 @@ phases:
       - echo "Building Next.js static export..."
       - npm run build          # outputs to ./out
 
+  post_build:
+    commands:
+      - echo "Invalidating CloudFront cache..."
+      - aws cloudfront create-invalidation --distribution-id E17887MOK62LAS --paths "/*"
+      - echo "Deploy complete."
+
 artifacts:
   files:
     - '**/*'
