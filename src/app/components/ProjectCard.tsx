@@ -47,17 +47,17 @@ export default function ProjectCard({ project }: Props) {
 
       <div className="flex flex-col flex-1 p-5">
         {/* Category badge */}
-        <span className={`self-start px-2.5 py-0.5 text-xs font-semibold font-body rounded border mb-3 ${categoryStyles[project.category]}`}>
+        <span className={`self-start px-2.5 py-0.5 text-sm font-semibold font-body rounded border mb-3 ${categoryStyles[project.category]}`}>
           {categoryLabel[project.category]}
         </span>
 
         {/* Title */}
-        <h3 className="font-display text-xl font-bold text-notebook-ink mb-2 group-hover:text-notebook-blue-dark transition-colors">
+        <h3 className="font-display text-2xl font-bold text-notebook-ink mb-2 group-hover:text-notebook-blue-dark transition-colors leading-tight">
           {project.title}
         </h3>
 
         {/* Summary */}
-        <p className="font-body text-sm text-slate-600 mb-4 flex-1 line-clamp-3">
+        <p className="font-body text-base text-slate-600 mb-4 flex-1 line-clamp-3 leading-relaxed">
           {project.summary}
         </p>
 
@@ -75,7 +75,7 @@ export default function ProjectCard({ project }: Props) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-sm font-medium text-slate-600 hover:text-notebook-ink underline underline-offset-2 transition-colors"
+              className="font-body text-base font-medium text-slate-600 hover:text-notebook-ink underline underline-offset-2 transition-colors"
             >
               GitHub ↗
             </Link>
@@ -85,13 +85,13 @@ export default function ProjectCard({ project }: Props) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-sm font-medium text-notebook-blue-dark hover:text-notebook-ink underline underline-offset-2 transition-colors"
+              className="font-body text-base font-medium text-notebook-blue-dark hover:text-notebook-ink underline underline-offset-2 transition-colors"
             >
               Live Demo ↗
             </Link>
           ) : null}
           {!project.github && !project.liveUrl && (
-            <span className="font-body text-sm text-slate-400 italic">Coming soon</span>
+            <span className="font-body text-base text-slate-400 italic">Coming soon</span>
           )}
         </div>
       </div>

@@ -89,4 +89,99 @@
   .tech-tag {
     @apply px-2 py-0.5 text-xs rounded font-mono bg-gray-100 text-gray-600;
   }
+
+  .float-card {
+    animation: floatCard 5.5s ease-in-out infinite;
+    will-change: translate;
+  }
+
+  .floating-label {
+    animation: floatLabel 3.4s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .skill-doodle-card::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border: 2px dashed rgba(12, 12, 12, 0.12);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .skill-doodle-mark {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    font-family: var(--font-handlee);
+    font-size: 1.25rem;
+    opacity: 0.4;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .skill-doodle-ring {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid rgba(12, 12, 12, 0.18);
+    border-radius: 999px;
+    right: 20px;
+    bottom: 100px;
+    pointer-events: none;
+  }
+
+  .skill-doodle-ring-2 {
+    width: 10px;
+    height: 10px;
+    right: 48px;
+    bottom: 92px;
+  }
+
+  .skill-sticker {
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    border-radius: 22px 18px 24px 16px;
+    background: rgba(255, 255, 255, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 2px 0 rgba(12, 12, 12, 0.08);
+    transform: rotate(6deg);
+  }
+
+  .skill-chip {
+    box-shadow: 0 1px 0 rgba(12, 12, 12, 0.08);
+  }
+
+  @keyframes floatCard {
+    0%,
+    100% {
+      translate: 0 0px;
+    }
+    50% {
+      translate: 0 -8px;
+    }
+  }
+
+  @keyframes floatLabel {
+    0%,
+    100% {
+      transform: rotate(0deg) translateY(0px);
+    }
+    50% {
+      transform: rotate(1deg) translateY(-4px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .float-card,
+    .floating-label {
+      animation: none;
+    }
+
+    .skill-sticker {
+      transform: none;
+    }
+  }
 }

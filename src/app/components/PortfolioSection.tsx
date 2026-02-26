@@ -11,14 +11,14 @@ const PortfolioSection = () => {
         {/* Section header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-10">
           <div>
-            <span className="custom-text text-2xl">My Work</span>
-            <p className="font-body text-slate-500 text-sm mt-2">
+            <span className="custom-text text-3xl sm:text-4xl">My Work</span>
+            <p className="font-body text-slate-600 text-base mt-2">
               A selection of things I&apos;ve built
             </p>
           </div>
           <Link
             href="/projects"
-            className="font-body text-sm font-medium text-notebook-blue-dark hover:text-notebook-ink underline underline-offset-4 transition-colors self-start sm:self-auto"
+            className="font-body text-base font-medium text-notebook-blue-dark hover:text-notebook-ink underline underline-offset-4 transition-colors self-start sm:self-auto"
           >
             View all projects →
           </Link>
