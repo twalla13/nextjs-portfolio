@@ -1,0 +1,147 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Learn more about Toniann Wallace — full-stack engineer with degrees in Mathematics and Software Engineering.',
+};
+
+const skillGroups = [
+  {
+    title: 'Frontend',
+    color: 'bg-notebook-pink',
+    border: 'border-notebook-pink-dark',
+    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML / CSS'],
+  },
+  {
+    title: 'Backend',
+    color: 'bg-notebook-blue',
+    border: 'border-notebook-blue-dark',
+    skills: ['Node.js', 'Java', 'Python', 'C++', 'REST APIs'],
+  },
+  {
+    title: 'Cloud & Tools',
+    color: 'bg-notebook-yellow',
+    border: 'border-notebook-yellow-dark',
+    skills: ['AWS', 'Azure', 'Git / GitHub', 'Docker', 'CI/CD'],
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <div className="bg-college-ruled min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6 py-16 max-w-4xl">
+
+        {/* Hero row */}
+        <div className="flex flex-col sm:flex-row gap-10 mb-16 items-start">
+          {/* Photo */}
+          <div className="flex-shrink-0">
+            <div
+              className="w-44 h-44 rounded-2xl overflow-hidden border-4 border-notebook-yellow-dark shadow-notebook"
+            >
+              <Image
+                src="/imgs/optimized/hero-md.webp"
+                alt="Toniann Wallace"
+                width={512}
+                height={512}
+                priority
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
+
+          {/* Bio */}
+          <div className="flex-1">
+            <span className="custom-text text-3xl">About Me</span>
+            <div className="space-y-4 font-body text-slate-700 mt-5 leading-relaxed">
+              <p>
+                Hi, I&apos;m <strong>Toniann Wallace</strong> — a full-stack software engineer
+                with degrees in <strong>Mathematics</strong> and{' '}
+                <strong>Software Engineering</strong>.
+              </p>
+              <p>
+                I specialise in building scalable web applications and cloud infrastructure.
+                My go-to stack is React, Next.js, TypeScript, and AWS, but I&apos;m comfortable
+                across the whole stack — from database design to UI polish.
+              </p>
+              <p>
+                I&apos;m outgoing, detail-oriented, and always looking for interesting problems to
+                solve. Whether it&apos;s designing a REST API, optimising a slow database query,
+                or building a pixel-perfect component — I love shipping things that work well.
+              </p>
+            </div>
+
+            <div className="flex gap-3 mt-7 flex-wrap">
+              <Link href="/contact" className="btn-primary text-sm">
+                Hire Me
+              </Link>
+              <a href="/resume.pdf" download className="btn-outline text-sm">
+                Download Resume ↓
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Skills */}
+        <div className="mb-16">
+          <span className="custom-text text-2xl">Skills &amp; Technologies</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8">
+            {skillGroups.map(({ title, color, border, skills }) => (
+              <div
+                key={title}
+                className={`sticky-note ${color} border-2 ${border}`}
+              >
+                <h2 className="font-display text-lg font-bold text-notebook-ink mb-4">
+                  {title}
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-2.5 py-1 bg-white/70 border border-white/50 text-notebook-ink text-xs font-body rounded"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education */}
+        <div>
+          <span className="custom-text text-2xl">Education</span>
+          <div className="mt-8 space-y-4">
+            {[
+              { degree: 'B.S. Software Engineering', where: 'University', year: 'Add year' },
+              { degree: 'B.S. Mathematics',          where: 'University', year: 'Add year' },
+            ].map(({ degree, where, year }) => (
+              <div
+                key={degree}
+                className="flex items-start gap-4 p-5 bg-white border-2 border-gray-200 rounded-xl"
+              >
+                <span
+                  className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-notebook-yellow border-2 border-notebook-yellow-dark rounded-lg text-lg"
+                  aria-hidden="true"
+                >
+                  🎓
+                </span>
+                <div>
+                  <p className="font-body font-semibold text-notebook-ink">{degree}</p>
+                  <p className="font-body text-sm text-slate-500">{where} · {year}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="font-body text-xs text-slate-400 mt-3">
+            Update the university names and years in <code className="font-mono">src/app/about/page.tsx</code>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,77 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Portfolio contact form — Lambda + API Gateway + SES
+  Deploy with: sam build && sam deploy --guided
+
+Parameters:
+  ToEmail:
+    Type: String
+    Default: toniwallace97@outlook.com
+    Description: Email address that receives contact form messages
+
+  FromEmail:
+    Type: String
+    Description: >
+      SES-verified sender address (must be verified in SES console).
+      Can be the same as ToEmail, or a domain address like noreply@tonidocs.com.
+
+  TurnstileSecretKey:
+    Type: String
+    NoEcho: true
+    Default: ""
+    Description: Cloudflare Turnstile secret key. Leave empty to skip verification.
+
+  AllowedOrigin:
+    Type: String
+    Default: https://tonidocs.com
+    Description: Frontend origin for CORS (no trailing slash)
+
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 128
+    Runtime: nodejs20.x
+    Environment:
+      Variables:
+        TO_EMAIL: !Ref ToEmail
+        FROM_EMAIL: !Ref FromEmail
+        TURNSTILE_SECRET_KEY: !Ref TurnstileSecretKey
+        ALLOWED_ORIGIN: !Ref AllowedOrigin
+
+Resources:
+  ContactFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./
+      Handler: contact-handler.handler
+      Description: Handles portfolio contact form submissions
+      Policies:
+        - Statement:
+            Effect: Allow
+            Action:
+              - ses:SendEmail
+              - ses:SendRawEmail
+            Resource: "*"
+      Events:
+        ContactPost:
+          Type: Api
+          Properties:
+            Path: /contact
+            Method: post
+        ContactOptions:
+          Type: Api
+          Properties:
+            Path: /contact
+            Method: options
+
+Outputs:
+  ContactApiUrl:
+    Description: >
+      API Gateway URL — set this as NEXT_PUBLIC_CONTACT_API_URL in your
+      CodeBuild environment variables and .env.local
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/contact"
+
+  ContactFunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt ContactFunction.Arn

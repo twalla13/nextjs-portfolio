@@ -1,20 +1,15 @@
-import Image from 'next/image'
-import PortfolioSection from './components/PortfolioSection'
-import HireMeSection from './components/HireMeSection'
-import HomeSection from './components/HomeSection'
-import AboutMeSection from './components/AboutMeSection'
+import HomeSection from './components/HomeSection';
+import AboutMeSection from './components/AboutMeSection';
+import PortfolioSection from './components/PortfolioSection';
+import HireMeSection from './components/HireMeSection';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-college-ruled">
-       <main className="container mx-auto px-4 lg:px-0" > {/* Use mx-8 to align content with the vertical line */}
-        <HomeSection />
-        <AboutMeSection />
-        <PortfolioSection />
-        <HireMeSection />
-        </main>
-
+    <div className="bg-college-ruled">
+      <HomeSection />
+      <AboutMeSection />
+      <PortfolioSection />
+      <HireMeSection />
     </div>
-    
-  )
+  );
 }

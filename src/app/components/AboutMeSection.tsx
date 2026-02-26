@@ -1,70 +1,88 @@
-/* eslint-disable @next/next/no-img-element */
-import React from "react";
+import Image from 'next/image';
+
+const skills = [
+  {
+    id: 'cloud',
+    title: 'Cloud Services',
+    body: 'Utilize AWS and Azure to design scalable, cost-efficient cloud architectures.',
+    img: '/imgs/optimized/cloud.webp',
+    alt: 'Cloud services illustration',
+    bg: 'bg-notebook-yellow',
+    border: 'border-notebook-yellow-dark',
+    tag: 'bg-notebook-blue',
+    rotate: '-rotate-2',
+  },
+  {
+    id: 'oop',
+    title: 'Object-Oriented Programming',
+    body: 'Develop maintainable, scalable software with Java, C++, and Python.',
+    img: '/imgs/optimized/computer.webp',
+    alt: 'Computer programming illustration',
+    bg: 'bg-notebook-blue',
+    border: 'border-notebook-blue-dark',
+    tag: 'bg-notebook-yellow',
+    rotate: 'rotate-2',
+  },
+  {
+    id: 'web',
+    title: 'Web Development',
+    body: 'Build responsive, dynamic web apps with React, Next.js, Node.js, and TypeScript.',
+    img: '/imgs/optimized/html.webp',
+    alt: 'HTML and CSS illustration',
+    bg: 'bg-notebook-pink',
+    border: 'border-notebook-pink-dark',
+    tag: 'bg-notebook-yellow',
+    rotate: '-rotate-1',
+  },
+];
+
 const AboutMeSection = () => (
- <section id= "about" className="flex items-center justify-center lg:p-8">
-      <div className="grid grid-cols-1 gap-4">
-        <div className="relative flex justify-start mb-2">
-          <img
-            src="/imgs/whatido.png"
-            alt="What I do"
-            className="w-164 h-153"
-          />
-        </div>
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 lg:gap-10">
-        {/* Card 1 */}
-          <div  className="relative w-full h-[240px] md:w-[240px] lg:w-full  md:h-[360px] lg:h-500" style={{ transform: 'rotate(-4deg)' }}>
-            <div className="p-4 h-full flex flex-col items-center justify-center" style={{
-              backgroundColor: '#FFE68C',
-              borderRadius: '8px',
-              border: '5px solid #EECD56',
-              boxShadow: '5px 5px 20px 0px rgba(255, 230, 140, 0.13)'
-            }}>
-              <h3 className="custom-text absolute top-[50px] right-[-20px] md:top-[70px] md:right-[-40px]" style={{ backgroundColor: '#9DDCFF', transform: 'rotate(4deg)' }}>Cloud Services</h3>
-              <p className="font-body  text-xl lg:text-2xl text-center" style={{transform: 'rotate(4deg)'}}>Utilize AWS and Azure for scalable, efficient cloud solutions.</p>
-              <img
-                src="/imgs/cloud-removebg.png"
-                alt="cloud"
-                className="w-[128px] h-[128px] absolute top-[100px] left-[-20px] md:top-[250px] md:left-[100px] lg:top-[250px] lg:left-[180px]"
-              />
-            </div>
-          </div>
-          {/* Card 2 */}
-          <div  className="relative w-full h-[240px] md:w-[240px] lg:w-full md:h-[360px] lg:h-500" style={{ transform: 'rotate(4deg)' }}>
-            <div className="p-4 h-full flex flex-col items-center justify-center" style={{
-              backgroundColor: '#9DDCFF',
-              borderRadius: '8px',
-              border: '5px solid #5AB5E8',
-              boxShadow: '5px 5px 20px 0px rgba(255, 230, 140, 0.13)'
-            }}>
-              <h3 className="custom-text absolute top-[-20px]" style={{ transform: 'rotate(-4deg)' }}>Object Orientated Programming</h3>
-              <p className="font-body text-xl lg:text-2xl  text-center" style={{transform: 'rotate(-4deg)' }}>Develop scalable, maintainable software using Java, C++, and Python.</p>
-              <img
-                src="/imgs/computer-removebg.png"
-                alt="computer"
-                className="w-[128px] h-[128px] absolute top-[150px] left-[50px] md:top-[250px] md:left-[100px] lg:top-[250px] lg:left-[180px]"
-              />
-            </div>
-          </div>
-          {/* Card 3 */}
-          <div  className="relative w-full h-[240px] md:w-[240px] lg:w-full md:h-[360px] lg:h-full" style={{ transform: 'rotate(-4deg)' }}>
-            <div className="p-4 h-full flex flex-col items-center justify-center" style={{
-              backgroundColor: '#FFC9F0',
-              borderRadius: '8px',
-              border: '5px solid #F384D4',
-              boxShadow: '5px 5px 20px 0px rgba(255, 230, 140, 0.13)'
-            }}>
-              <h3 className="custom-text absolute bottom-[170px] right-[-20px] md:bottom-[270px] md:right-[-40px]" style={{ backgroundColor: '#FFE68C', transform: 'rotate(4deg)' }}>Web Development</h3>
-              <p className="font-body text-xl lg:text-2xl text-center" style={{transform: 'rotate(4deg)' }}>Create responsive, dynamic web applications with React, NextJS, Node.js, and TypeScript.</p>
-              <img
-                src="/imgs/html-removebg.png"
-                alt="html doodle"
-                className="w-[128px] h-[128px] absolute top-[140px] left-[50px] md:top-[250px] md:left-[100px] lg:top-[250px] lg:left-[180px]"
-              />
-            </div>
-          </div>
-        </div>
+  <section id="about" className="py-16 px-4 sm:px-6">
+    <div className="container mx-auto">
+      {/* Section heading */}
+      <div className="mb-12 text-center md:text-left">
+        <span className="custom-text text-2xl">What I do</span>
+        <p className="font-body text-slate-500 text-sm mt-2 ml-0.5">
+          My core areas of expertise
+        </p>
       </div>
-    </section>
+
+      {/* Skill cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        {skills.map(({ id, title, body, img, alt, bg, border, tag, rotate }) => (
+          <div
+            key={id}
+            className={`sticky-note ${bg} border-2 ${border} ${rotate}
+                        hover:rotate-0 flex flex-col min-h-64`}
+          >
+            {/* Title tag — positioned like a sticky label */}
+            <span
+              className={`custom-text ${tag} absolute -top-4 right-4 text-sm shadow-sm`}
+            >
+              {title}
+            </span>
+
+            {/* Body text */}
+            <p className="font-body text-base text-notebook-ink mt-6 leading-relaxed flex-1">
+              {body}
+            </p>
+
+            {/* Decorative image */}
+            <div className="flex justify-end mt-4 opacity-90">
+              <Image
+                src={img}
+                alt={alt}
+                width={96}
+                height={96}
+                loading="lazy"
+                className="w-20 h-20 object-contain"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 );
 
 export default AboutMeSection;

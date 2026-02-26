@@ -2,44 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-    .bg-college-ruled {
-        background-color: white;
-        background-image:
-            linear-gradient(to bottom, rgba(173, 216, 230, 0.8) 1px, transparent 1px),
-            /* light blue horizontal lines */
-            linear-gradient(to right, rgba(255, 182, 193, 0.8) 2px, transparent 2px);
-        /* light red vertical line */
-        background-size: 100% 24px, 100% 100%;
-        /* adjust the sizes for the lines */
-        background-position: 0 12px, 32px 0;
-        /* position the horizontal and vertical lines */
-    }
-    .custom-text {
-        color: #0C0C0C;
-        text-align: left;
-        text-wrap: nowrap;
-        -webkit-text-stroke-width: 0.5px;
-        -webkit-text-stroke-color: #0C0C0C;
-        font-family: var(--font-handlee);
-        /* Ensure the font is imported in your project */
-        font-size: 26px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        background-color: #FFC9F0;
-        padding: 0.05em 0.05em;
-        /* Add padding to make the highlight more visually appealing */
-        display: inline;
-        /* Ensure the background color applies only to the text */
-    }
-    
-@media (min-width: 1024px) {
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    /* For larger screens */
-    .bg-college-ruled {
-        background-position: 0 18px, 60px 0;
-        /* Move the red line more inward */
-    }
+  :focus-visible {
+    outline: 2px solid #5AB5E8;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Suppress focus ring for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
+
+@layer utilities {
+  /* ─── Notebook paper background ─── */
+  .bg-college-ruled {
+    background-color: #FAFAF8;
+    background-image:
+      linear-gradient(to bottom, rgba(173, 216, 230, 0.55) 1px, transparent 1px),
+      linear-gradient(to right, rgba(255, 182, 193, 0.65) 2px, transparent 2px);
+    background-size: 100% 28px, 100% 100%;
+    background-position: 0 0, 48px 0;
+  }
+
+  @media (min-width: 1024px) {
+    .bg-college-ruled {
+      background-position: 0 0, 64px 0;
+    }
+  }
+
+  /* ─── Hand-written highlight label ─── */
+  .custom-text {
+    color: #0C0C0C;
+    font-family: var(--font-handlee);
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: #FFC9F0;
+    padding: 0.1em 0.35em;
+    display: inline;
+    -webkit-text-stroke: 0.4px #0C0C0C;
+    white-space: nowrap;
+    line-height: 1.9;
+  }
+
+  /* ─── Sticky note card base ─── */
+  .sticky-note {
+    @apply rounded-lg border-2 p-6 relative transition-all duration-300;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.11);
+  }
+
+  .sticky-note:hover {
+    box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.11);
+  }
+
+  /* ─── Notebook-style button ─── */
+  .btn-primary {
+    @apply px-6 py-2.5 bg-notebook-yellow border-2 border-notebook-ink
+           text-notebook-ink font-body font-semibold rounded
+           transition-all duration-200 inline-flex items-center gap-2;
+  }
+
+  .btn-primary:hover {
+    @apply bg-notebook-yellow-dark shadow-notebook;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    @apply px-6 py-2.5 border-2 border-notebook-ink text-notebook-ink
+           font-body font-semibold rounded transition-all duration-200
+           inline-flex items-center gap-2;
+  }
+
+  .btn-outline:hover {
+    @apply bg-notebook-ink text-white shadow-notebook;
+    transform: translateY(-1px);
+  }
+
+  /* ─── Tag chip ─── */
+  .tech-tag {
+    @apply px-2 py-0.5 text-xs rounded font-mono bg-gray-100 text-gray-600;
+  }
 }

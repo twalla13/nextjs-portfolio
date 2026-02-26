@@ -1,24 +1,32 @@
 version: 0.2
 
+env:
+  # Add these variables in your CodeBuild project settings (or via SSM Parameter Store):
+  #   NEXT_PUBLIC_CONTACT_API_URL   – API Gateway URL from `sam deploy`
+  #   NEXT_PUBLIC_TURNSTILE_SITE_KEY – Cloudflare Turnstile public site key
+
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 20
     commands:
-      - echo "Installing source NPM dependencies..."
-      - npm install
+      - echo "Installing dependencies..."
+      - npm ci
 
   build:
     commands:
-      - echo "Building the Next.js application..."
-      - npm run build
+      - echo "Running prebuild (image optimization)..."
+      - npm run setup          # generates public/imgs/optimized/*.webp  (skips if already present)
+      - echo "Building Next.js static export..."
+      - npm run build          # outputs to ./out
 
 artifacts:
   files:
     - '**/*'
   discard-paths: no
-  base-directory: out # Changed from 'build' to 'out'
+  base-directory: out
 
 cache:
   paths:
     - 'node_modules/**/*'
+    - 'public/imgs/optimized/**/*'   # cache generated WebP files between builds

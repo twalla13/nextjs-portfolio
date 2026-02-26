@@ -1,35 +1,84 @@
-/* eslint-disable @next/next/no-img-element */
-import React from 'react';
+'use client';
 
-const HomeSection = () => (
-  <section id="homepage" className="mx-auto flex lg:mx-48 flex-col lg:flex-row items-center justify-center">
-    <div className="relative">
-      <img
-        src="/imgs/homepagegirl.png"
-        alt="Homepage Girl"
-        className="w-40 h-40 md:w-[256px] md:h-[256px] lg:w-[512px] lg:h-[512px] xl:w-[1024px] xl:h-[1024px]"
-        style={{ 
-          maxWidth: '100%', 
-          height: 'auto',
-          maskImage: 'radial-gradient(circle, white 60%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(circle, white 60%, transparent 100%)'
-        }}
-      />
-     <div className="absolute top-10 left-1 md:left-16 lg:top-12 lg:left-1/3 transform -translate-x-1/2 -translate-y-1/2 flex items-center">
-        <span className="custom-text text-s md:text-2xl mr-5">toni</span>
-          <img
-            src="/imgs/arrow.svg"
-            alt="Arrow"
-            className=" sm:w-6 sm:h-6 md:w-12 md:h-12 lg:w-[36px] lg:h-[68px] transform scale-x-[-1] rotate-[-70deg]"
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import ContactModal from './ContactModal';
+
+const HomeSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  return (
+    <>
+      <section
+        id="home"
+        className="container mx-auto px-4 sm:px-6 py-12 md:py-20 flex flex-col md:flex-row items-center gap-10 md:gap-16"
+      >
+        {/* Hero image */}
+        <div className="relative flex-shrink-0 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]">
+          {/* Decorative sticky-note label */}
+          <div className="absolute -top-3 left-6 z-10 flex items-center gap-2">
+            <span className="custom-text bg-notebook-yellow text-sm">toni</span>
+            <Image
+              src="/imgs/arrow.svg"
+              alt=""
+              width={28}
+              height={28}
+              aria-hidden="true"
+              className="rotate-[-70deg] scale-x-[-1] opacity-80"
+            />
+          </div>
+
+          <Image
+            src="/imgs/optimized/hero-lg.webp"
+            alt="Toniann Wallace at a computer"
+            width={768}
+            height={768}
+            priority
+            className="w-full h-full object-cover rounded-2xl"
+            style={{
+              maskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, white 55%, transparent 100%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, white 55%, transparent 100%)',
+            }}
           />
-    </div>
-    </div>
-    <div className="text-center mt-6 p-4 lg:text-left lg:p-2">
-      <h1 className="font-display text-2xl md:text-3xl lg:text-6xl font-bold mb-4">Toniann Wallace: Crafting Digital Solutions</h1>
-      <p className="mb-4 font-display lg:text-2xl sm:mx-4">With degrees in Math and Software Engineering, I am a full stack engineer skilled in problem-solving and multiple coding languages. Outgoing and ready to innovate.</p>
-      <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Hire Me</button>
-    </div>
-  </section>
-);
+        </div>
+
+        {/* Text */}
+        <div className="flex-1 text-center md:text-left max-w-xl animate-slide-up">
+          {/* Availability chip */}
+          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 bg-green-50 border border-green-200 rounded-full">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" aria-hidden="true" />
+            <span className="font-body text-xs font-medium text-green-700">Available for opportunities</span>
+          </div>
+
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-notebook-ink mb-4 leading-tight">
+            Toniann Wallace:
+            <br />
+            <span className="text-notebook-blue-dark">Crafting Digital Solutions</span>
+          </h1>
+
+          <p className="font-body text-base sm:text-lg text-slate-600 mb-8 leading-relaxed">
+            With degrees in Mathematics and Software Engineering, I build scalable web
+            applications and cloud infrastructure — clean, fast, and built to last.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+            <button
+              onClick={() => setModalOpen(true)}
+              className="btn-primary text-base"
+            >
+              Hire Me
+            </button>
+            <Link href="/projects" className="btn-outline text-base">
+              View My Work
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
+  );
+};
 
 export default HomeSection;
