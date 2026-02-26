@@ -1,9 +1,8 @@
 version: 0.2
 
-env:
-  # Add these variables in your CodeBuild project settings (or via SSM Parameter Store):
-  #   NEXT_PUBLIC_CONTACT_API_URL   – API Gateway URL from `sam deploy`
-  #   NEXT_PUBLIC_TURNSTILE_SITE_KEY – Cloudflare Turnstile public site key
+# Set these env vars in your CodeBuild project settings (Environment section):
+#   NEXT_PUBLIC_CONTACT_API_URL      – API Gateway URL from `sam deploy`
+#   NEXT_PUBLIC_TURNSTILE_SITE_KEY   – Cloudflare Turnstile public site key
 
 phases:
   install:
