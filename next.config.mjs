@@ -1,23 +1,19 @@
-// Using ES Module syntax since the file extension is .mjs
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Static export for S3 + CloudFront deployment
   output: 'export',
+
+  // Images are pre-optimized at build time via scripts/optimize-images.mjs,
+  // so Next.js server-side image transforms are not needed.
   images: {
     unoptimized: true,
-  }
-  // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
+  },
+
+  // trailingSlash: true enables /about/ -> out/about/index.html
+  // Uncomment if your CloudFront distribution is configured to serve index.html
+  // for subdirectory requests (recommended). See DEPLOY.md.
   // trailingSlash: true,
-
-  // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
-  // skipTrailingSlashRedirect: true,
-
-  // Optional: Change the output directory `out` -> `dist`
-  // distDir: 'dist',
-
-  // images: {
-  //   domains: ['tonidocs.com'], // Customize to your needs
-  // }
 }
 
 export default nextConfig
+
